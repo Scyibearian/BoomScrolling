@@ -13,15 +13,16 @@
     {"name":"Shaders","order":6,"path":"folders/Shaders.yy",},
     {"name":"Sounds","order":3,"path":"folders/Sounds.yy",},
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
+    {"name":"Player Sprites","order":5,"path":"folders/Sprites/Player Sprites.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
-    {"name":"Player Sprites","order":5,"path":"folders/Sprites/Player Sprites.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"spr_player_left","order":5,"path":"sprites/spr_player_left/spr_player_left.yy",},
     {"name":"spr_player_up","order":4,"path":"sprites/spr_player_up/spr_player_up.yy",},
     {"name":"spr_wall","order":1,"path":"sprites/spr_wall/spr_wall.yy",},
     {"name":"spr_player_right","order":6,"path":"sprites/spr_player_right/spr_player_right.yy",},
+    {"name":"spr_house_tiles","order":6,"path":"sprites/spr_house_tiles/spr_house_tiles.yy",},
     {"name":"obj_wall","order":1,"path":"objects/obj_wall/obj_wall.yy",},
   ],
 }
