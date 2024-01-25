@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_house_tiles",
-  "bbox_bottom": 63,
+  "bbox_bottom": 95,
   "bbox_left": 0,
   "bbox_right": 63,
   "bbox_top": 0,
@@ -17,7 +17,7 @@
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 64,
+  "height": 128,
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"577af681-58bd-4597-aec6-a729c0858ecc","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
