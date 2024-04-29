@@ -1,6 +1,6 @@
 # Unnamed game
 * Gameplay ❌
-* Setting: Futuristic Medieval (what the fuck)
+* Setting: Futuristic Medieval
 * Themes ❌
 * Characters ❌
 * Items ❌
