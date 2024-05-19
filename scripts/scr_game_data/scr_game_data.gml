@@ -20,7 +20,8 @@ global.actionLibrary =
 		func : function(_user, _targets)
 		{
 			var _damage = ceil(_user.strength + random_range(-_user.strength * 0.25, _user.strength * 0.25));
-			with (_targets[0]) hp = max(0, hp - _damage);
+			battle_change_hp(_targets[0], -_damage, 0);
+			//with (_targets[0]) hp = max(0, hp - _damage);
 		}
 	}
 		
@@ -40,6 +41,7 @@ global.party=
 	{
 		name: "Fructose",
 		hp: 30,
+		hpMax: 30,
 		strength : 6,
 		sprites : { idle: spr_player_down }
 	}
@@ -47,6 +49,7 @@ global.party=
 	{
 		name: "Maize",
 		hp: 30,
+		hpMax: 30,
 		strength: 4,
 		sprites : { idle: spr_player_down }
 	}
@@ -60,6 +63,7 @@ global.enemies =
 	{
 		name: "Slime",
 		hp: 30,
+		hpMax: 30,
 		strength: 2,
 		sprites : { idle: spr_enemy1 }
 	}

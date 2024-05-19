@@ -48,6 +48,7 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"spr_enemy1","path":"sprites/spr_enemy1/spr_enemy1.yy",},},
     {"id":{"name":"ts_house","path":"tilesets/ts_house/ts_house.yy",},},
+    {"id":{"name":"obj_battle_floating_text","path":"objects/obj_battle_floating_text/obj_battle_floating_text.yy",},},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},},
     {"id":{"name":"spr_box","path":"sprites/spr_box/spr_box.yy",},},
     {"id":{"name":"scr_battle_functions","path":"scripts/scr_battle_functions/scr_battle_functions.yy",},},

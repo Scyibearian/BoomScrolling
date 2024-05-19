@@ -27,6 +27,7 @@
     {"name":"spr_battle_background","order":4,"path":"sprites/spr_battle_background/spr_battle_background.yy",},
     {"name":"obj_battle_unit","order":1,"path":"objects/obj_battle_unit/obj_battle_unit.yy",},
     {"name":"spr_enemy1","order":1,"path":"sprites/spr_enemy1/spr_enemy1.yy",},
+    {"name":"obj_battle_floating_text","order":5,"path":"objects/obj_battle_floating_text/obj_battle_floating_text.yy",},
     {"name":"spr_box","order":5,"path":"sprites/spr_box/spr_box.yy",},
     {"name":"scr_battle_functions","order":1,"path":"scripts/scr_battle_functions/scr_battle_functions.yy",},
     {"name":"obj_battle_unit_pc","order":3,"path":"objects/obj_battle_unit_pc/obj_battle_unit_pc.yy",},
