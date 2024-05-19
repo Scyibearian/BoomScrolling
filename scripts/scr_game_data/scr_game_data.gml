@@ -43,7 +43,7 @@ global.party=
 		hp: 30,
 		hpMax: 30,
 		strength : 6,
-		sprites : { idle: spr_player_down }
+		sprites : { idle: spr_player_down, downed: spr_player_downed }
 	}
 	,
 	{
@@ -51,7 +51,7 @@ global.party=
 		hp: 30,
 		hpMax: 30,
 		strength: 4,
-		sprites : { idle: spr_player_down }
+		sprites : { idle: spr_player_down,downed: spr_player_downed }
 	}
 
 
@@ -65,6 +65,6 @@ global.enemies =
 		hp: 30,
 		hpMax: 30,
 		strength: 2,
-		sprites : { idle: spr_enemy1 }
+		sprites : { idle: spr_enemy1, downed: spr_enemy1_downed }
 	}
 }
