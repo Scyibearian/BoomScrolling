@@ -43,7 +43,7 @@ global.party=
 		hp: 30,
 		hpMax: 30,
 		strength : 6,
-		sprites : { idle: spr_player_down, downed: spr_player_downed }
+		sprites : { idle: spr_player_down, downed: spr_player_downed },	
 	}
 	,
 	{
@@ -65,6 +65,18 @@ global.enemies =
 		hp: 30,
 		hpMax: 30,
 		strength: 2,
-		sprites : { idle: spr_enemy1, downed: spr_enemy1_downed }
+		sprites : { idle: spr_enemy1, downed: spr_enemy1_downed },
+		actions: [global.actionLibrary.attack],
+		AIscript: function()
+		{
+			//attack random party member
+			var _action = actions[0];
+			var _possibleTargets = array_filter(obj_battle.partyUnits, function(_unit, _index)
+			{
+				return (_unit.hp > 0);
+			});
+			var _target = _possibleTargets[irandom(array_length(_possibleTargets)-1)];
+			return [_action, _target];
+		}
 	}
 }
