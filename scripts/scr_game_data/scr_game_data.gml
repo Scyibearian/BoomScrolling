@@ -23,6 +23,26 @@ global.actionLibrary =
 			battle_change_hp(_targets[0], -_damage, 0);
 			//with (_targets[0]) hp = max(0, hp - _damage);
 		}
+	},
+	
+	fireball :
+	{
+		name: "Fire",
+		description : "{0} throws a fireball!",
+		subMenu : "Magic",
+		mpCost: 4,
+		targetRequired : true,
+		targetEnemyByDefault : true,
+		targetAll : MODE.NEVER,
+		userAnimation: "fireball",
+		effectSprite : spr_attack_fireball,
+		effectOnTarget : MODE.ALWAYS,
+		func : function(_user, _targets)
+		{
+			var _damage = irandom_range(10,15)
+			battle_change_hp(_targets[0], -_damage, 0);
+			//battle_change_mp(_user, -mpCost)
+		}
 	}
 		
 }		
@@ -44,6 +64,7 @@ global.party=
 		hpMax: 30,
 		strength : 6,
 		sprites : { idle: spr_player_down, downed: spr_player_downed },	
+		actions : [global.actionLibrary.attack]
 	}
 	,
 	{
@@ -51,7 +72,8 @@ global.party=
 		hp: 30,
 		hpMax: 30,
 		strength: 4,
-		sprites : { idle: spr_player_down,downed: spr_player_downed }
+		sprites : { idle: spr_player_down,downed: spr_player_downed },
+		actions : [global.actionLibrary.attack, global.actionLibrary.fireball]
 	}
 
 

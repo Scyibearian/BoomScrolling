@@ -24,6 +24,7 @@
     {"name":"obj_battle_effect","order":4,"path":"objects/obj_battle_effect/obj_battle_effect.yy",},
     {"name":"spr_player_up","order":4,"path":"sprites/spr_player_up/spr_player_up.yy",},
     {"name":"spr_player_downed","order":7,"path":"sprites/spr_player_downed/spr_player_downed.yy",},
+    {"name":"spr_attack_fireball","order":9,"path":"sprites/spr_attack_fireball/spr_attack_fireball.yy",},
     {"name":"spr_attack_bonk","order":6,"path":"sprites/spr_attack_bonk/spr_attack_bonk.yy",},
     {"name":"spr_pointer","order":7,"path":"sprites/spr_pointer/spr_pointer.yy",},
     {"name":"spr_battle_background","order":4,"path":"sprites/spr_battle_background/spr_battle_background.yy",},

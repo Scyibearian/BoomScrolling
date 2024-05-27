@@ -62,3 +62,10 @@ function MenuGoBack()
 	options = optionsAbove[subMenuLevel];
 	hover = 0;
 }
+
+function MenuSelectAction(_user, _action)
+{
+	with (obj_menu) active = false;
+	with (obj_battle) BeginAction(_user, _action, _user);
+	with (obj_menu) instance_destroy();
+}

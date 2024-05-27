@@ -42,6 +42,7 @@
     {"id":{"name":"spr_player_up","path":"sprites/spr_player_up/spr_player_up.yy",},},
     {"id":{"name":"scr_macros","path":"scripts/scr_macros/scr_macros.yy",},},
     {"id":{"name":"spr_player_downed","path":"sprites/spr_player_downed/spr_player_downed.yy",},},
+    {"id":{"name":"spr_attack_fireball","path":"sprites/spr_attack_fireball/spr_attack_fireball.yy",},},
     {"id":{"name":"spr_attack_bonk","path":"sprites/spr_attack_bonk/spr_attack_bonk.yy",},},
     {"id":{"name":"spr_pointer","path":"sprites/spr_pointer/spr_pointer.yy",},},
     {"id":{"name":"spr_battle_background","path":"sprites/spr_battle_background/spr_battle_background.yy",},},

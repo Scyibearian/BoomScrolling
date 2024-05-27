@@ -47,36 +47,86 @@ RefreshRenderOrder();
 
 function BattleStateSelectAction()
 {
-	//Get current unit
-	var _unit = unitTurnOrder[turn]; //untTurnOrder causes array expected error
-	
-	//is the unit dead or unable to act?
-	if (!instance_exists(_unit)) || (_unit.hp <= 0)
+	if(!instance_exists(obj_menu))
 	{
-		battleState = BattleStateVictoryCheck;
-		exit;
-	}
+		//Get current unit
+		var _unit = unitTurnOrder[turn]; //untTurnOrder causes array expected error
 	
-	//Select an action to peform
-	//BeginAction(_unit.id, global.actionLibrary.attack, _unit.id);	
-	
-	//if unit is player controled:
-	if (_unit.object_index == obj_battle_unit_pc)
-	{
-		//attack random party member
-		var _action = global.actionLibrary.attack;
-		var _possibleTargets = array_filter(obj_battle.enemyUnits, function(_unit, _index)
+		//is the unit dead or unable to act?
+		if (!instance_exists(_unit)) || (_unit.hp <= 0)
 		{
-			return (_unit.hp > 0);
-		});
-		var _target = _possibleTargets[irandom(array_length(_possibleTargets)-1)];
-		BeginAction(_unit.id, _action, _target);
-	}
-	else
-	{
-		//if unit is AI controlled:
-		var _enemyAction = _unit.AIscript();
-		if (_enemyAction != -1) BeginAction(_unit.id, _enemyAction[0], _enemyAction[1]);
+			battleState = BattleStateVictoryCheck;
+			exit;
+		}
+	
+		//Select an action to peform
+		//BeginAction(_unit.id, global.actionLibrary.attack, _unit.id);	
+	
+		//if unit is player controled:
+		if (_unit.object_index == obj_battle_unit_pc)
+		{
+			//Compile the action menu
+			var _menuOptions = [];
+			var _subMenus = {};
+			
+			var _actionList = _unit.actions;
+			
+			for (var i = 0; i < array_length(_actionList); i++)
+			{
+				var _action = _actionList[i];
+				var _available = true; //later we'll check mp cost here
+				var _nameAndCount = _action.name; //later we';; modify the name to include the item count, if the action is an item.
+				if (_action.subMenu == -1)
+				{
+					array_push(_menuOptions, [_nameAndCount, MenuSelectAction, [_unit, _action], _available]);
+				}
+				else
+				{
+					//create or add to a submenu
+					if (is_undefined(_subMenus[$ _action.subMenu]))
+					{
+						variable_struct_set(_subMenus, _action.subMenu, [[_nameAndCount, MenuSelectAction, [_unit, _action], _available]]);
+					}
+					else
+					{
+						array_push(_subMenus[$ _action.subMenu], [[_nameAndCount, MenuSelectAction, [_unit, _action], _available]]);
+					}
+				}
+				
+				//turn sub menus into an array
+				var _subMenusArray = variable_struct_get_names(_subMenus);
+				for (var i = 0; i < array_length(_subMenusArray); i++)
+				{
+					//sort submenu if needed
+					//(here)
+					
+					//add back option at the end of each submenu
+					array_push(_subMenus[$ _subMenusArray[i]], ["Back", MenuGoBack, -1, true]);
+					//add submenu into main menu
+					array_push(_menuOptions, [_subMenusArray[i], SubMenu, [_subMenus[$ _subMenusArray[i]]], true]);
+				}
+			}
+			
+			//Call menu build function, with position
+			Menu(x+10, y+110, _menuOptions, , 74, 60);
+			
+			
+			
+			//attack random party member
+			//var _action = global.actionLibrary.attack;
+			//var _possibleTargets = array_filter(obj_battle.enemyUnits, function(_unit, _index)
+			//{
+			//	return (_unit.hp > 0);
+			//});
+			//var _target = _possibleTargets[irandom(array_length(_possibleTargets)-1)];
+			//BeginAction(_unit.id, _action, _target);
+		}
+		else
+		{
+			//if unit is AI controlled:
+			var _enemyAction = _unit.AIscript();
+			if (_enemyAction != -1) BeginAction(_unit.id, _enemyAction[0], _enemyAction[1]);
+		}
 	}
 }
 
