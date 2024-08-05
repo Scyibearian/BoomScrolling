@@ -33,14 +33,25 @@ global.actionLibrary =
 		mpCost: 4,
 		targetRequired : true,
 		targetEnemyByDefault : true,
-		targetAll : MODE.NEVER,
+		targetAll : MODE.VARIES,//MODE.VARIES,//MODE.NEVER,
 		userAnimation: "fireball",
 		effectSprite : spr_attack_fireball,
 		effectOnTarget : MODE.ALWAYS,
 		func : function(_user, _targets)
 		{
-			var _damage = irandom_range(10,15)
-			battle_change_hp(_targets[0], -_damage, 0);
+			for (var i = 0; i < array_length(_targets); i++)
+			{
+				var _damage = irandom_range(15,20);
+				if (array_length(_targets) > 1) _damage = ceil(_damage*0.75); //only parsing target selected by cursor and same dead target again when trying to target alive because cursor not move with MODE.VARIES
+				// (investigate where targets are chosen with cursor/cursor not neeeded for ALWAYS/VARIES ? VARIES should work to shift press and change from cursor to no cursor or cursor on all, where are targets chosen by cursor
+				battle_change_hp(_targets[i], -_damage);
+			}
+			//Check MP before attack damage, then change mp or not use attack and give message (or line 88 on obj_battle create event)
+			//battle_change_mp(_user, -mpCost) //MP cost yet unimplemented
+			
+			
+			//var _damage = irandom_range(10,15)
+			//battle_change_hp(_targets[0], -_damage, 0);
 			//battle_change_mp(_user, -mpCost)
 		}
 	}

@@ -15,6 +15,17 @@ currentTargets = noone;
 
 //enemies = [];
 
+cursor =
+{
+	activeUser: noone,
+	activeTarget: noone,
+	targetSide: -1,
+	targetIndex: 0,
+	targetAll: false,
+	confirmDelay: 0,
+	active: false
+};
+
 //Make enemies
 for (var i = 0; i < array_length(enemies); i++)
 {
@@ -74,7 +85,7 @@ function BattleStateSelectAction()
 			for (var i = 0; i < array_length(_actionList); i++)
 			{
 				var _action = _actionList[i];
-				var _available = true; //later we'll check mp cost here
+				var _available = true; //later we'll check mp cost here MP COST HERE OR
 				var _nameAndCount = _action.name; //later we';; modify the name to include the item count, if the action is an item.
 				if (_action.subMenu == -1)
 				{
@@ -93,18 +104,20 @@ function BattleStateSelectAction()
 					}
 				}
 				
-				//turn sub menus into an array
-				var _subMenusArray = variable_struct_get_names(_subMenus);
-				for (var i = 0; i < array_length(_subMenusArray); i++)
-				{
-					//sort submenu if needed
-					//(here)
+
+			}
+			
+			//turn sub menus into an array
+			var _subMenusArray = variable_struct_get_names(_subMenus);
+			for (var i = 0; i < array_length(_subMenusArray); i++)
+			{
+				//sort submenu if needed
+				//(here)
 					
-					//add back option at the end of each submenu
-					array_push(_subMenus[$ _subMenusArray[i]], ["Back", MenuGoBack, -1, true]);
-					//add submenu into main menu
-					array_push(_menuOptions, [_subMenusArray[i], SubMenu, [_subMenus[$ _subMenusArray[i]]], true]);
-				}
+				//add back option at the end of each submenu
+				array_push(_subMenus[$ _subMenusArray[i]], ["Back", MenuGoBack, -1, true]);
+				//add submenu into main menu
+				array_push(_menuOptions, [_subMenusArray[i], SubMenu, [_subMenus[$ _subMenusArray[i]]], true]);
 			}
 			
 			//Call menu build function, with position
@@ -184,7 +197,7 @@ function BattleStatePerformAction()
 					instance_create_depth(x,y,depth-100,oBattleEffect,{sprite_index : _effectSprite});
 				}
 			}
-			currentAction.func(currentUser, currentTargets);
+			currentAction.func(currentUser, currentTargets); //function for action called
 		}
 	}
 	else

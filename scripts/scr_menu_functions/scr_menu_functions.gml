@@ -66,6 +66,48 @@ function MenuGoBack()
 function MenuSelectAction(_user, _action)
 {
 	with (obj_menu) active = false;
-	with (obj_battle) BeginAction(_user, _action, _user);
-	with (obj_menu) instance_destroy();
+	//Activate the targettiung cursor if needed, or simply begin the action
+	with (obj_battle) 
+	{
+		if (_action.targetRequired)
+		{
+			with (cursor)
+			{
+				active = true;
+				activeAction = _action;
+				targetAll = _action.targetAll;
+				if (targetAll == MODE.VARIES) targetAll = true; //toggle starts as all by default
+				activeUser = _user;
+					
+				//Which side to target by default?
+				if(_action.targetEnemyByDefault) //target enemy by default
+				{
+					targetIndex = 0;
+					targetSide = obj_battle.enemyUnits;
+					activeTarget = obj_battle.enemyUnits[targetIndex];
+				}
+				else //target self bydefault
+				{
+					targetSide = obj_battle.partyUnits;
+					activeTarget = activeUser;
+					var _findSelf = function(_element)
+					{
+						return(_element == activeTarget)
+					}
+					targetIndex = array_find_index(obj_battle.partyUnits, _findSelf);
+				}
+			}
+		}
+		else
+		{
+			//If no target needed, begin the action and end the mennu
+			BeginAction(_user,_action,-1);
+			with (obj_menu) instance_destroy();
+		}
+	}
+	
+	
+	
+	//BeginAction(_user, _action, _user);
+	//with (obj_menu) instance_destroy();
 }
