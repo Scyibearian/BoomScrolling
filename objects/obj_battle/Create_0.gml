@@ -219,7 +219,46 @@ function BattleStatePerformAction()
 
 function BattleStateVictoryCheck()
 {
-	battleState = BattleStateTurnProgression; //Currently battle going infinitely
+	//battleState = BattleStateTurnProgression; //Currently battle going infinitely
+	
+	enemiesDefeated = true;
+	partyDefeated = true;
+	
+	for (var i = 0; i < array_length(enemyUnits); i++)
+	{
+		if (enemyUnits[i].hp > 0)
+		{
+			enemiesDefeated = false;
+			
+		}
+	}
+	
+	for (var i = 0; i < array_length(partyUnits); i++)
+	{
+		if (partyUnits[i].hp > 0)
+		{
+			partyDefeated = false;
+			
+		}
+	}
+	
+	if (enemiesDefeated == true)
+	{
+		//Victory
+	}
+	else if (partyDefeated == true)
+	{
+		//Defeat
+	}
+	else
+	{
+		battleState = BattleStateTurnProgression; //Neither Victory nor defeat, continue turn progression
+	}
+	
+	
+	
+	
+	
 }
 
 function BattleStateTurnProgression()
