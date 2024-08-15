@@ -1,4 +1,4 @@
-instance_deactivate_all(true);
+instance_deactivate_all(true); //Turn off all main map instances
 
 units = [];
 turn = 0;
@@ -245,10 +245,25 @@ function BattleStateVictoryCheck()
 	if (enemiesDefeated == true)
 	{
 		//Victory
+		instance_destroy(obj_battle) //player unit and enemy unit not there on main map
+		instance_activate_all() 
+		//(battle immediately starts again because player and enemy still touching)
+		//(destroy any enemy object after victory after activating_all ?) need timer ?
+		//instance_destroy(obj_enemy1) //This destroys all obj_enemy1 instances
+		instance_destroy(creator)
+		//New solution, get instance number of enemy sent through the encounter function
+		
+		
 	}
 	else if (partyDefeated == true)
 	{
 		//Defeat
+		instance_destroy(obj_battle)
+		instance_activate_all()
+		obj_player.x = 128;
+		obj_player.y = 96;
+		//set player position to start after activating
+		//make player face down too
 	}
 	else
 	{

@@ -1,4 +1,4 @@
-xspd = 0;
+xspd = 0; //start stationary
 yspd = 0;
 
 move_spd = 1;
@@ -9,4 +9,4 @@ sprite[UP] = spr_player_up;
 sprite[LEFT] = spr_player_left;
 sprite[DOWN] = spr_player_down;
 
-face = DOWN;
+face = DOWN; //default face down

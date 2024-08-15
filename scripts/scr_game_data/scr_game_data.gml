@@ -41,7 +41,7 @@ global.actionLibrary =
 		{
 			for (var i = 0; i < array_length(_targets); i++)
 			{
-				var _damage = irandom_range(15,20);
+				var _damage = irandom_range(15,200); //,20
 				if (array_length(_targets) > 1) _damage = ceil(_damage*0.75); //only parsing target selected by cursor and same dead target again when trying to target alive because cursor not move with MODE.VARIES
 				// (investigate where targets are chosen with cursor/cursor not neeeded for ALWAYS/VARIES ? VARIES should work to shift press and change from cursor to no cursor or cursor on all, where are targets chosen by cursor
 				battle_change_hp(_targets[i], -_damage);
@@ -88,6 +88,7 @@ global.party=
 	}
 
 
+
 ];
 
 global.enemies =
@@ -97,7 +98,7 @@ global.enemies =
 		name: "Slime",
 		hp: 30,
 		hpMax: 30,
-		strength: 2,
+		strength: 2,//2,
 		sprites : { idle: spr_enemy1, downed: spr_enemy1_downed },
 		actions: [global.actionLibrary.attack],
 		AIscript: function()
