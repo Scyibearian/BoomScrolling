@@ -12,8 +12,8 @@ for (var i = 0; i < array_length(unitRenderOrder); i++)
 
 
 //Draw UI boxes
-draw_sprite_stretched(spr_box,0,x+76,y+120,210,60);
-draw_sprite_stretched(spr_box,0,x+1,y+120,73,60);
+draw_sprite_stretched(spr_box,0,x+76,y+120,210,75);
+draw_sprite_stretched(spr_box,0,x+1,y+120,73,75);
 
 
 //Positions
@@ -35,7 +35,7 @@ draw_text(x+COLUMN_HP,y+120,"HP");
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
-var draw_limit = 3;
+var draw_limit = 4;
 var drawn = 0;
 for (var i = 0; (i < array_length(enemyUnits)) && (drawn < draw_limit); i++)
 {
@@ -46,7 +46,7 @@ for (var i = 0; (i < array_length(enemyUnits)) && (drawn < draw_limit); i++)
 		draw_set_halign(fa_left);
 		draw_set_color(c_white);
 		if (char.id == unitWithCurrentTurn) draw_set_color(c_yellow);
-		draw_text(x+COLUMN_ENEMY,y+130+(i*12),char.name);
+		draw_text(x+COLUMN_ENEMY,y+133+(i*13),char.name);
 	}
 }
 
@@ -58,13 +58,13 @@ for (var i = 0; i < array_length(partyUnits); i++)
 	var char = partyUnits[i];
 	if (char.id == unitWithCurrentTurn) draw_set_color(c_yellow);
 	if(char.hp <= 0) draw_set_color(c_red);
-	draw_text(x+COLUMN_NAME,y+130+(i*12),char.name);
+	draw_text(x+COLUMN_NAME,y+133+(i*13),char.name);
 	draw_set_halign(fa_right);
 	
 	draw_set_color(c_white);
 	//if (char.hp < char.hp_max * 0.5)) draw_set_color(c_orange);
 	if (char.hp <= 0) draw_set_color(c_red);
-	draw_text(x+COLUMN_HP+50,y+130+(i*12),string(char.hp)); // + "/" + string(char.hp_max));
+	draw_text(x+COLUMN_HP+50,y+133+(i*13),string(char.hp)); // + "/" + string(char.hp_max));
 	
 	draw_set_color(c_white);
 }

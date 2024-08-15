@@ -29,7 +29,8 @@ for (l = 0; l < (visibleOptionsMax + _desc); l++)
 }
 		
 draw_sprite(spr_pointer, 0, x + xmargin + 8, y + ymargin + ((hover - _scrollPush) * heightLine) + 7);
-if (visibleOptionsMax < array_length(options)) && (hover < array_length(options)-1)
+if (visibleOptionsMax < array_length(options)) //&& (hover < array_length(options)-1) //This was hiding arrows outside main starting scroll
 {
 	draw_sprite(spr_down_arrow, 0, x + widthFull * 0.5, y + heightFull - 7);
+	draw_sprite_ext(spr_down_arrow, 0, x + widthFull * 0.5, y + ymargin, 1, 1, 180, -1, 1); //Draw up arrow at top of scrolling meny
 }
