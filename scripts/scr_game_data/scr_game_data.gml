@@ -4,29 +4,6 @@
 randomize() //RANDOMISE
 
 
-//var tspr = array_create(2);
-//tspr[0] = sprite_duplicate(spr_skeleton)
-//tspr[1] = sprite_duplicate(spr_box);
-//sprite_merge(tspr[0], tspr[1]);
-//sprite_delete(tspr[1]); //testing merging sprites
-
-
-var surf;
-surf = surface_create(32, 32);
-surface_set_target(surf);
-draw_clear_alpha(c_black, 0);
-draw_sprite(spr_head, 0, 16, 16);
-draw_sprite(spr_legs, 0, 16, 16);
-spr_custom = sprite_create_from_surface(surf, 0, 0, 32, 32, true, false, 16, 16);
-surface_reset_target();
-surface_free(surf);
-
-//this can't eb animated, so use draw event and draw 3 sprites instead
-
-
-
-
-
 //Action Library
 global.actionLibrary = 
 {
@@ -222,7 +199,7 @@ global.enemies =
 		hp: 30,
 		hpMax: 30,
 		strength: 2,//2,
-		sprites : { idle: spr_custom, downed: spr_enemy1_downed },
+		sprites : { idle: spr_skeleton, downed: spr_enemy1_downed },
 		actions: [global.actionLibrary.attack],
 		AIscript: function()
 		{
