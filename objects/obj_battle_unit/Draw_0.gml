@@ -12,9 +12,10 @@
 //if (sprites.head) && (sprites.legs)
 //{
 	//draw_self();
-	draw_sprite(spr_head, image_index, x, y);
-	draw_sprite(spr_legs, image_index, x, y); //for second argument subimage, 0 means first "animation panel" and image_index or -1 means whole animation
-	//I can now assign a different head and legs for each unit like this
+draw_sprite(spr_head_1, image_index, x, y);
+draw_sprite(spr_torso_1, image_index, x, y); //for second argument subimage, 0 means first "animation panel" and image_index or -1 means whole animation
+draw_sprite(spr_legs_1, image_index, x, y);
+//I can now assign a different head and legs for each unit like this
 	//Causes problems with downed sprites though
 	//Simple fix is change the angle of the drawn 2 sprites by 90 degrees
 //}
