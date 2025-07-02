@@ -178,7 +178,7 @@ function BattleStatePerformAction()
 		{
 			with(currentUser)
 			{
-			sprite_index = sprites.idle; //These two lines should make a unit stop animating but doesn't seem to so perhaps only momentarily
+			//sprite_index = sprites.idle; //These two lines should make a unit stop animating but doesn't seem to so perhaps only momentarily //no longer using idle
 			image_index = 0;
 			acting = false;
 			}

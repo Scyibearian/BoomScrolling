@@ -12,10 +12,37 @@
 //if (sprites.head) && (sprites.legs)
 //{
 	//draw_self();
-draw_sprite(spr_head_1, image_index, x, y);
-draw_sprite(spr_torso_1, image_index, x, y); //for second argument subimage, 0 means first "animation panel" and image_index or -1 means whole animation
-draw_sprite(spr_legs_1, image_index, x, y);
+//draw_sprite(spr_head_1, image_index, x, y);
+//draw_sprite(spr_torso_1, image_index, x, y); //for second argument subimage, 0 means first "animation panel" and image_index or -1 means whole animation
+//draw_sprite(spr_legs_1, image_index, x, y);
 //I can now assign a different head and legs for each unit like this
 	//Causes problems with downed sprites though
 	//Simple fix is change the angle of the drawn 2 sprites by 90 degrees
 //}
+
+
+
+
+// Get the sprite parts from unit_data 
+/*var sprSet = unit_data.sprites;  // { head, torso, legs }
+
+if (sprSet != undefined) {
+    // Draw the parts (legs -> torso -> head for layering)
+    if (sprSet.legs != undefined) {
+        draw_sprite(sprSet.legs, image_index, x, y);
+    }
+    if (sprSet.torso != undefined) {
+        draw_sprite(sprSet.torso, image_index, x, y);
+    }
+    if (sprSet.head != undefined) {
+        draw_sprite(sprSet.head, image_index, x, y);
+    }
+} else {
+    draw_self();  // fallback in case no sprites are defined
+}*/
+
+
+
+draw_sprite(sprites.head, image_index, x, y);
+draw_sprite(sprites.torso, image_index, x, y); //for second argument subimage, 0 means first "animation panel" and image_index or -1 means whole animation
+draw_sprite(sprites.legs, image_index, x, y);

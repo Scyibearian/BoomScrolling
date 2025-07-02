@@ -1,7 +1,9 @@
 event_inherited();
 if (hp <=0)
 {
-	sprite_index = sprites.downed;
+	//MAKE DRAWN SPRITE ROTATE
+	//#todo
+	//sprite_index = sprites.downed;
 }
 //else
 //{

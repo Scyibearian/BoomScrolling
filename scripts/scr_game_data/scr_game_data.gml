@@ -107,6 +107,36 @@ enum MODE
 }
 
 
+
+
+
+
+function random_part_set() {
+	var head_index = irandom(2); // 0 to 2
+	var torso_index = irandom(2);
+	var legs_index = irandom(2);
+	
+	return {
+		head: asset_get_index("spr_head_" + string(head_index + 1)),
+		torso: asset_get_index("spr_torso_" + string(torso_index + 1)),
+		legs: asset_get_index("spr_legs_" + string(legs_index + 1))
+	};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 global.party=
 [
 	{
@@ -114,8 +144,9 @@ global.party=
 		hp: 30,
 		hpMax: 30,
 		strength : 6,
-		sprites : { idle: spr_player_down, downed: spr_player_downed },	
+		sprites : random_part_set(),		//TEST THIS #todo
 		actions : [global.actionLibrary.attack, global.actionLibrary.swipe, global.actionLibrary.fireball]
+		//Add another attribute for which sprites are randomly selected
 	}
 	,
 	{
@@ -123,7 +154,7 @@ global.party=
 		hp: 30,
 		hpMax: 30,
 		strength: 4,
-		sprites : { idle: spr_player_down,downed: spr_player_downed },
+		sprites : { head : spr_head_3, torso : spr_torso_2, legs : spr_legs_2 },	
 		actions : [global.actionLibrary.attack, global.actionLibrary.fireball, global.actionLibrary.slash, global.actionLibrary.swipe]
 	}
 	,
@@ -132,7 +163,7 @@ global.party=
 		hp: 30,
 		hpMax: 30,
 		strength: 6,
-		sprites : { idle: spr_player_down,downed: spr_player_downed },
+		sprites : { head : spr_head_1, torso : spr_torso_2, legs : spr_legs_1 },	
 		actions : [global.actionLibrary.attack, global.actionLibrary.fireball, global.actionLibrary.slash, global.actionLibrary.swipe]
 	}
 	,
@@ -141,7 +172,7 @@ global.party=
 		hp: 30,
 		hpMax: 30,
 		strength: 4,
-		sprites : { idle: spr_player_down,downed: spr_player_downed },
+		sprites : { head : spr_head_2, torso : spr_torso_2, legs : spr_legs_1 },	
 		actions : [global.actionLibrary.attack, global.actionLibrary.fireball]
 	}
 
@@ -157,7 +188,7 @@ global.enemies =
 		hp: 30,
 		hpMax: 30,
 		strength: 2,//2,
-		sprites : { idle: spr_enemy1, downed: spr_enemy1_downed },
+		sprites : { head : spr_head_1, torso : spr_torso_2, legs : spr_legs_3 },	
 		actions: [global.actionLibrary.attack],
 		AIscript: function()
 		{
@@ -178,7 +209,7 @@ global.enemies =
 		hp: 30,
 		hpMax: 30,
 		strength: 2,//2,
-		sprites : { idle: spr_skeleton, downed: spr_enemy1_downed },
+		sprites : { head : spr_head_1, torso : spr_torso_2, legs : spr_legs_3 },	
 		actions: [global.actionLibrary.attack],
 		AIscript: function()
 		{
@@ -199,7 +230,7 @@ global.enemies =
 		hp: 30,
 		hpMax: 30,
 		strength: 2,//2,
-		sprites : { idle: spr_skeleton, downed: spr_enemy1_downed },
+		sprites : { head : spr_head_1, torso : spr_torso_2, legs : spr_legs_3 },	
 		actions: [global.actionLibrary.attack],
 		AIscript: function()
 		{
